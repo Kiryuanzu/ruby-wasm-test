@@ -1,7 +1,14 @@
-<script src="https://cdn.jsdelivr.net/npm/ruby-head-wasm-wasi@latest/dist/browser.script.iife.js"></script>
-<script type="text/ruby">
-  puts "hello world"
-  require 'js'
-  document = JS.global[:document]
-  document.write "桐生あんずです"
-</script>
+<html>
+  <script src="https://cdn.jsdelivr.net/npm/ruby-head-wasm-wasi@latest/dist/browser.script.iife.js"></script>
+  <script type="text/ruby">
+    require 'js'
+    message = JS.global[:document].call(:getElementById, 'message')
+    message[:innerText] = "桐生あんずです"
+    message_second = JS.global[:document].call(:getElementById, 'message_second')
+    message_second[:innerText] = "桐生あんずです2"
+  </script>
+  <body>
+    <div id="message"></div>
+    <div id="message_second"></div>
+  </body>
+</html>

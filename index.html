@@ -4,6 +4,9 @@
     require 'js'
     message = JS.global[:document].call(:getElementById, 'message')
     message[:innerText] = "桐生あんずです"
+    message.addEventListener('click') do |e|
+      puts 'Hello, World!'
+    end
     message_second = JS.global[:document].call(:getElementById, 'message_second')
     message_second[:innerText] = "桐生あんずです2"
   </script>
